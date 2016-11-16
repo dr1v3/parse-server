@@ -45,7 +45,7 @@ function updateTransports(options) {
   });
 }
 
-export function configureLogger({
+function configureLogger({
   logsFolder = defaults.logsFolder,
   jsonLogs = defaults.jsonLogs,
   logLevel = winston.level,
@@ -78,12 +78,12 @@ export function configureLogger({
   updateTransports(options);
 }
 
-export function addTransport(transport) {
+function addTransport(transport) {
   additionalTransports.push(transport);
   updateTransports();
 }
 
-export function removeTransport(transport) {
+function removeTransport(transport) {
   let transportName = typeof transport == 'string' ? transport : transport.name;
   let transports = Object.assign({}, logger.transports);
   delete transports[transportName];
